@@ -148,6 +148,11 @@ pure:
         params ~= Param(key, value);
     }
 
+    void remove(string key) {
+	import std.algorithm.iteration : filter;
+        params = params.filter!(x => x.key != key).array;
+    }
+
     private struct QueryParamRange
     {
 pure:
